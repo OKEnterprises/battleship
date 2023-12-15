@@ -1,6 +1,10 @@
 import { Gameboard } from "./gameboard";
 import { Coord } from "./types"
 
+function getRandomInteger(max: number): number {
+    return Math.floor(Math.random() * max);
+}
+
 class Player {
     name: string;
     board: Gameboard;
