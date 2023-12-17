@@ -1,6 +1,8 @@
+import { Coord } from "./types";
+
 type Grid = HTMLDivElement;
 
-export const page = (() => {
+export const Page = (() => {
     function generateGrid(size=10): Grid {
         const container = document.createElement('div');
         container.style.display = 'grid';
@@ -20,8 +22,39 @@ export const page = (() => {
     }
 
     function displayShips(grid: Grid) {
+        
+    }
+
+    function coordInputDisplay(): HTMLFormElement {
+        const form = document.createElement('form');
+        form.id = 'coord-input-form';
+
+        const xInput = document.createElement('input');
+        xInput.id = 'x-input';
+        xInput.classList.add('coord-input', 'x-input');
+        xInput.type = 'number';
+
+        const yInput = document.createElement('input');
+        yInput.id = 'y-input';
+        xInput.classList.add('coord-input', 'y-input')
+        yInput.type = 'number';
+
+        form.append(xInput, yInput);
+        return form;
+    }
+
+    function getInputCoord(): Coord {
+        const xInput: HTMLInputElement = document.querySelector("#x-input");
+        const yInput: HTMLInputElement = document.querySelector("#y-input");
+
+        if (!xInput.value || !yInput.value) return [-1, -1];
+        else return [parseInt(xInput.value), parseInt(yInput.value)];
+    }
+
+    function render() {
+        const body: HTMLBodyElement = document.querySelector('body');
 
     }
 
-    return {generateGrid, displayShips}
+    return {generateGrid, displayShips, getInputCoord, render}
 })();

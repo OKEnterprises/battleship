@@ -1,20 +1,17 @@
 import { Ship } from './ship'
 import { Square, Coord, Direction } from './types'
 
+type BoardRow = [Square, Square, Square, Square, Square, Square, Square, Square, Square, Square]
+type Board = [BoardRow, BoardRow, BoardRow, BoardRow, BoardRow, BoardRow, BoardRow, BoardRow, BoardRow, BoardRow]
+
 class Gameboard {
-    board: Square[][];
+    board: Board;
     numShips: number;
 
     constructor() {
         this.numShips = 5;
-        
-        const startingShips = [5, 4, 3, 3, 2]
 
-        for (const shipLength of startingShips) {
-            // const shipCoord = this.inputCoord();
-            // const shipOrientation = this.inputOrientation(); 
-            // this.placeShip(shipCoord, shipLength, shipOrientation);
-        }
+        []
     }
 
     placeShip(coord: Coord, length: number, orientation: Direction): boolean {

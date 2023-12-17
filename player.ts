@@ -1,5 +1,5 @@
 import { Gameboard } from "./gameboard";
-import { Coord } from "./types"
+import { Coord } from "./types";
 
 function getRandomInteger(max: number): number {
     return Math.floor(Math.random() * max);
@@ -11,7 +11,7 @@ class Player {
 
     constructor(name: string) {
         this.name = name;
-        this.board = new Gameboard;
+        this.board = new Gameboard();
     }
 
     hasLost(): boolean {
